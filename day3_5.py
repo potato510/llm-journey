@@ -12,6 +12,7 @@ def save_scores(scores, filename):
         print("文件操作失败，请检查文件路径是否正确！")
 
 save_scores({"冰川": 87, "孟铃": 80, "刘红": 60, "柏迅": 60, "王红": 40}, "scores.json")
+save_scores({"志刚": 90, "文博": 80, "双龙": 70, "柏迅": 60, "元红": 50}, "scores.json")
 
 def load_scores(filename):
     try:

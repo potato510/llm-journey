@@ -25,11 +25,11 @@ scores_a = {"志刚": 90, "文博": 80, "双龙": 70, "柏迅": 60, "元红": 50
 
 
 
-# for name, score in scores.items():
-#     if score >= 60:
-#         print(f"{name}：{score}分，及格")
-#     else:
-#         print(f"{name}：{score}分，不及格")
+for name, score in scores_a.items():
+    if score >= 60:
+        print(f"{name}：{score}分，及格")
+    else:
+        print(f"{name}：{score}分，不及格")
 
 
 scores_b = {"冰川": 87, "孟铃": 80, "刘红": 60, "柏迅": 60, "王红": 40}

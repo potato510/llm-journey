@@ -10,8 +10,7 @@ def statistics(scores):
     max_score = max(scores.values()) # 最高分
     min_score = min(scores.values()) # 最低分
 
-    scores_list = list(scores.items())
-    scores_list.sort(key=lambda x: x[1], reverse=True)  # 按分数从高到低排序
+    scores_list = sorted(scores.items(),key=lambda x: x[1], reverse=True)  # 按分数从高到低排序
     top_student = scores_list[0][0]  # 获取最高分学生姓名
 
    # 统计及格率
