@@ -63,7 +63,7 @@ def search_contacts(contacts,keyword):
         print("联系人列表为空，无法查找联系人。")
         return result
 
-    if type(contacts) is not dict:
+    if not isinstance(contacts,dict) :
         print(f"联系人列表为非字典结构，不可查询{contacts}")
         return result
 
@@ -84,34 +84,93 @@ def list_contacts(contacts):
     return len(panel)
 
 
+def main():
+    contacts = load_contacts()
+    while True :
+     print("\n1 添加 2删除 3修改 4 查询 5列表 0退出")
+     choice = input("请选择：").strip()
+
+     if choice == "0":
+         print("再见")
+         break
+     elif choice == "1":
+         name = input("姓名：").strip()
+         phone = input("手机号：").strip()
+         if not name:
+             print("姓名不能为空")
+             continue
+         try:
+             if add_contact(contacts,name,phone):
+                 save_contacts(contacts)
+                 print("添加成功")
+         except ValueError as e:
+             print(f"添加失败：{e}")
+     elif choice == "2":
+         name = input("姓名：").strip()
+         if delete_contact(contacts,name):
+             save_contacts(contacts)
+             print("删除成功")
+     elif choice == "3":
+          name = input("姓名：")
+          if name not in contacts:
+              print(f"{name}不存在")
+              continue
+          phone = input("新手机号（回车不改）").strip() or contacts[name]['phone']
+
+          if not (phone.isdigit() and len(phone) == 11):
+            print("手机格式不正确")
+            continue
+          contacts[name]['phone'] = phone
+          save_contacts(contacts)
+          print("修改手机号成功")
+
+     elif choice == "4":
+         keyword = input("关键词 （名字/电话/邮箱/备注）")
+         result = search_contacts(contacts,keyword)
+         for name,info in result.items():
+             print(f"{name}:{info['phone']}  {info['email']}  {info['note']}")
+         print(f"共{len(result)} 条")   
+         
+     elif choice == "5":
+         list_contacts(contacts)
+         
+     else:
+         print("请输入0-5")
 
 
 
+if __name__ == "__main__":
 
-c = load_contacts("contacts.json")
+    main()
 
-add_contact(c,"张三","13800138000")
 
-add_contact(c,"李四","13900139000","li@x.com")
+    # c = load_contacts("contacts.json")
 
-add_contact(c,"张三","13700137000")
+    # add_contact(c,"张三","13800138000")
 
-try:
+    # add_contact(c,"李四","13900139000","li@x.com")
 
-    add_contact(c, "王五", "abc")
-except ValueError as e: 
-    print(f"预期内异常：{e}")  
+    # add_contact(c,"张三","13700137000")
 
-save_contacts(c)
+    # try:
 
-c2 = load_contacts()
+    #     add_contact(c, "王五", "abc")
+    # except ValueError as e: 
+    #     print(f"预期内{e}")  
 
-print(f"c2 数据详情{c2}")
+    # save_contacts(c)
 
-count = list_contacts(c2)
+    # c2 = load_contacts()
 
-print(f"联系人记录共有{count}条")
+    # print(f"c2 数据详情{c2}")
 
-print(search_contacts(c2,"张"))
+    # count = list_contacts(c2)
 
-print(search_contacts(c2,"赵六"))
+    # print(f"联系人记录共有{count}条")
+
+    # print(search_contacts(c2,"张"))
+
+    # print(search_contacts(c2,"赵六"))
+
+
+   
