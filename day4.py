@@ -100,7 +100,7 @@ try:
 
     add_contact(c, "王五", "abc")
 except ValueError as e: 
-    print(f"预期内异{e}")  
+    print(f"预期内异常：{e}")  
 
 save_contacts(c)
 
