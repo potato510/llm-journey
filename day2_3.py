@@ -1,3 +1,5 @@
+# 【语法卡片】if / for / while / break / continue → 见同目录 day2.py 顶部
+
 import random
 print("=== 练习 4  ===")
 

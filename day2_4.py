@@ -1,3 +1,5 @@
+# 【语法卡片】if / for / while / break / continue → 见同目录 day2.py 顶部
+
 print("=== 练习 5  ===")
 
 # for i in range(1, 101):

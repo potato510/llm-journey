@@ -1,3 +1,5 @@
+# 【语法卡片】函数 / 字典 / 文件读写 / JSON → 见同目录 day3.py 顶部
+
 print("=== 练习 4  ===")
 
 with open("sample.txt","w",encoding="utf-8") as f:

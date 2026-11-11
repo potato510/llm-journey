@@ -1,3 +1,33 @@
+# ═══════════════════════════════════════════════════════════════════
+# Day5 语法卡片 · 综合（通讯录：分层 + JSON 持久化 + 异常兜底 + 菜单循环）
+# ═══════════════════════════════════════════════════════════════════
+# 分层原则
+#   数据层：load/save/add/delete/search/list —— 只处理数据和规则，不打印
+#   菜单层：读输入 → 调函数 → 打印提示；不写业务逻辑
+#
+# 菜单循环标准写法
+#   while True:
+#       choice = input("请选择：").strip()
+#       if choice == "0":
+#           break
+#       elif choice == "1":
+#           ...
+#       else:
+#           print("请输入 0-5")        # 所有分支都回到循环顶部
+#
+# 异常约定
+#   手机号非法 → add_contact 里 raise ValueError；调用方 try/except 决定提示
+#   文件损坏   → except (FileNotFoundError, json.JSONDecodeError) → 返回 {}
+#
+# 输入校验
+#   name = input("姓名：").strip()          # 去首尾空格
+#   if not name: print("姓名不能为空")
+#   phone.isdigit() and len(phone) == 11    # 11 位纯数字
+#
+# 入口守卫（Python 标准写法，也为拆模块做准备）
+#   if __name__ == "__main__":
+#       main()
+# ═══════════════════════════════════════════════════════════════════
 import json
 import os
 print("=== 练习 1 ===")
