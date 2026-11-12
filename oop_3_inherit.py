@@ -2,7 +2,7 @@ import oop
 
 print("=== 练习2 ===")
 
-class SavingAccount(day5.BankAccount):
+class SavingAccount(oop.BankAccount):
 
     def __init__(self, owner, balance=0 , interest_rate=0.03):
         super().__init__(owner, balance)

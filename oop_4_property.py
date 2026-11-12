@@ -3,7 +3,7 @@ import oop
 
 print("=== 练习3 ==")
 
-class BankAccountExpand(day5.BankAccount):
+class BankAccountExpand(oop.BankAccount):
 
 
      def __init__(self,owner,balance=0):
