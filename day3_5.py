@@ -26,4 +26,4 @@ def load_scores(filename):
 
 
 j = load_scores("scores.json")
-print(f"读取的成绩数据：{j}")
+print(f"读取的成绩数据：{j}")   

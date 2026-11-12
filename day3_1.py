@@ -49,7 +49,7 @@ scores_b = {"冰川": 87, "孟铃": 80, "刘红": 60, "柏迅": 60, "王红": 40
 scores_a_name = {name for name in scores_a.keys() }
 scores_b_name = {name for name in scores_b.keys() }
 
-scores_taobal_name = set(scores_a_name |scores_b_name)
+scores_taobal_name = set(scores_a_name | scores_b_name)
 
 intersection = ()
 difference_set = ()

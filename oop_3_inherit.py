@@ -20,7 +20,7 @@ class SavingAccount(oop.BankAccount):
 
 
 if __name__ == "__main__":
-    save = SavingAccount("李四",0.03,1000)
+    save = SavingAccount("李四",1000,0.03)
     save.add_interest()
 
     print(save)
