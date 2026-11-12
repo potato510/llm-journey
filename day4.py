@@ -97,7 +97,7 @@ def search_contacts(contacts,keyword):
         print(f"联系人列表为非字典结构，不可查询{contacts}")
         return result
 
-    return { name:data for name,data in contacts.items() if keyword in name or keyword in data['phone'] or keyword in data['email'] or keyword in data['note']}
+    return { name:data for name,data in contacts.items() if keyword.strip() in name or keyword.strip() in data['phone'] or keyword.strip() in data['email'] or keyword.strip() in data['note']}
 
 
 def list_contacts(contacts):
@@ -155,7 +155,7 @@ def main():
           print("修改手机号成功")
 
      elif choice == "4":
-         keyword = input("关键词 （名字/电话/邮箱/备注）")
+         keyword = input("关键词 （名字/电话/邮箱/备注）").strip()
          result = search_contacts(contacts,keyword)
          for name,info in result.items():
              print(f"{name}:{info['phone']}  {info['email']}  {info['note']}")
